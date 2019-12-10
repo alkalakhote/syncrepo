@@ -1,0 +1,28 @@
+ 1   yum install -y yum-utils   device-mapper-persistent-data   lvm2
+    2  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    3  clear
+    4   yum install docker-ce docker-ce-cli containerd.io
+    5  clear
+    6  service docker start
+    7  chkconfig docker on
+    8  docker
+    9  clear
+   10  docker run debian echo "hello World"
+   11  docker container ps
+   12  docker container ps -a
+   13  docker images
+   14  clear
+   15  docker run -i -t debian /bin/bash
+   16  docker container ls -a
+   17  docker container ld
+   18  docker container ls
+   19  docker container ls -a
+   20  clear
+   21  docker run -it --name cowsay --hostname cowsay debian bash
+   22  docker container ls -a
+   23  docker commit
+   24  clear
+   25  docker commit
+   26  docker commit cowsay test/cowsayimage
+   27  docker images
+   28  history
