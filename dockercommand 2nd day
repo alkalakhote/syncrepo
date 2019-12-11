@@ -1,0 +1,266 @@
+@ip-172-31-32-235 ~]#
+[root@ip-172-31-32-235 ~]#
+[root@ip-172-31-32-235 ~]#
+[root@ip-172-31-32-235 ~]#
+[root@ip-172-31-32-235 ~]#
+[root@ip-172-31-32-235 ~]# history
+    1   yum install -y yum-utils   device-mapper-persistent-data   lvm2
+    2  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    3  clear
+    4   yum install docker-ce docker-ce-cli containerd.io
+    5  clear
+    6  service docker start
+    7  chkconfig docker on
+    8  docker
+    9  clear
+   10  docker run debian echo "hello World"
+   11  docker container ps
+   12  docker container ps -a
+   13  docker images
+   14  clear
+   15  docker run -i -t debian /bin/bash
+   16  docker container ls -a
+   17  docker container ld
+   18  docker container ls
+   19  docker container ls -a
+   20  clear
+   21  docker run -it --name cowsay --hostname cowsay debian bash
+   22  docker container ls -a
+   23  docker commit
+   24  clear
+   25  docker commit
+   26  docker commit cowsay test/cowsayimage
+   27  docker images
+   28  history
+   29  docker images
+   30  clear
+   31  docker images
+   32  docker run test/cowsayimage /usr/games/cowsay "Moo"
+   33  docker container ls -a
+   34  docker run -it --name javacon --hostname javac debian bash
+   35  docker run -it --name javacon1 --hostname javac1 debian bash
+   36  docker container start
+   37  shutdown -h now
+   38  yum update -y
+   39  clear
+   40  docker container run --publish 80:80 nginx
+   41  docker container run --publish 80:80 --detach nginx
+   42  docker container lsd
+   43  docker container ls
+   44  clear
+   45  docker container ls
+   46  docker container run --publish 81:80 --detach nginx
+   47  docker container run --publish 82:80 --detach nginx
+   48  docker container ls
+   49  clear
+   50  history
+   51  docker container run --publish 83:80 --detach apache
+   52  docker container run --publish 83:80 --detach httpd
+   53  docker container ls
+   54  docker container run --publish 80:80 --detach nginx
+   55  clear
+   56  docker container ls
+   57  docker container stop 1156 c62f
+   58  docker container ls
+   59  docker container stop
+   60  docker container ls -a
+   61  docker container rm c5c 7a10 8a38 d81f 49f f3afd d62 1c58 1156 c62f 1447
+   62  docker container ls
+   63  docker container rm 1049
+   64  docker container stop 1049
+   65  docker container rm 1049
+   66  docker container rm 1447 --force
+   67  docker container ls -a
+   68  docker container rm 12dd --force
+   69  docker container ls -a
+   70  clear
+   71  docker container run --publish 80:80 --detach nginx
+   72  docker container ls
+   73  docker container logs
+   74  docker container logs zen_stonebraker
+   75  docker container top
+   76  docker container top zen_stonebraker
+   77  ps | aux
+   78  top
+   79  ps aux
+   80  ps auz
+   81  ps aux
+   82  docker container top zen_stonebraker
+   83  clear
+   84  docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql
+   85  docker container top mysql
+   86  docker container log
+   87  clear
+   88  docker container logs mysql
+   89  clear
+   90  docker container logs mysql
+   91  docker container ls
+   92  clear
+   93  docker container exec -it mysql bash
+   94  docker container ls
+   95  docker container ls
+   96  clear
+   97  docker container ls
+   98  docker container inspect
+   99  docker container inspect mysql
+  100  clear
+  101  docker container inspect mysql | more
+  102  cd /var/lib/docker/volumes/90e9074980ad59a5f8b77d62c8c51d2bd3c682f3e52c08160f95850146db7b52/
+  103  ls
+  104  cd _data
+  105  ls
+  106  pwd
+  107  docker container inspect mysql | more
+  108  cd /root
+  109  kls
+  110  ls
+  111  java
+  112  clear
+  113  yum install java-1.8.0-openjdk
+  114  clear
+  115  yum install java-1.8.0-openjdk-dev
+  116  yum install java-1.8.0-openjdk-devel
+  117  clear
+  118  mkdir helloworld
+  119  cd helloworld/
+  120  vi HelloWorld.java
+  121  vi HelloWorld.java
+  122  javac HelloWorld.java
+  123  ls
+  124  cat HelloWorld.
+  125  cat HelloWorld.java
+  126  java HelloWorld
+  127  vi manifet.txt
+  128  rm manifet.txt
+  129  vi manifest.txt
+  130  cat manifest.txt
+  131  clear
+  132  jar cfm HelloWorld.jar manifest.txt HelloWorld.class .
+  133  vi manifest.txt
+  134  jar cfm HelloWorld.jar manifest.txt HelloWorld.class .
+  135  jar cfm HelloWorld.jar manifest.txt HelloWorld.class
+  136  ls
+  137  cat manifest.txt
+  138  java -jar HelloWorld.jar
+  139  vi Dockerfile
+  140  clear
+  141  ls
+  142  docker build -t helloworld .
+  143  docker images
+  144  docker run /hello-world
+  145  docker container run helloworld
+  146  ls
+  147  clear
+  148  ls
+  149  cd helloworld/
+  150  ls
+  151  vi HelloWorld.java
+  152  javac HelloWorld.java
+  153  java HelloWorld.java
+  154  vi HelloWorld.java
+  155  java HelloWorld.java
+  156  vi HelloWorld.java
+  157  java HelloWorld.java
+  158  javac HelloWorld.java
+  159  java HelloWorld
+  160  clear
+  161  jar cfm HelloWorld.java manifest.txt HelloWorld.class
+  162  java -jar HelloWorld.jar
+  163  ls
+  164  rm HelloWorld.jar
+  165  jar cfm HelloWorld.java manifest.txt HelloWorld.class
+  166  java -jar HelloWorld.jar
+  167  jar cfm HelloWorld.jar manifest.txt HelloWorld.class
+  168  java -jar HelloWorld.jar
+  169  docker build -t helloworld
+  170  docker build -t helloworld .
+  171  docker images
+  172  clear
+  173  docker login
+  174  docker images
+  175  docker tag 122c75db077c gopal1409/helloworld
+  176  dockr images
+  177  clear
+  178  docekr images
+  179  docker images
+  180  docker push gopal1409/helloworld
+  181  docker images
+  182  clear
+  183  docker save gopal1409/helloworld > Helloworlld.tar
+  184  ls
+  185  ls -l
+  186  docker load --input Helloworlld.tar
+  187  docker images
+  188  clear
+  189  docker run -d -p 5000:5000 --restart=always registry registry:2
+  190  docker container ls
+  191  docker images
+  192  df -h
+  193  docker images
+  194  docker container ls
+  195  clear
+  196  docker container ls
+  197  docker rm 3a58 --force
+  198  docker run -d -p 5000:5000 --restart=always --name registry registry:2
+  199  docker container ls
+  200  clear
+  201  docker images
+  202  docker tag helloworld localhost:5000/helloworld
+  203  docker push localhost:5000/helloworld
+  204  docker container ls
+  205  clear
+  206  curl -X GEt http://localhost:5000/v2_catalog
+  207  curl -X GET http://localhost:5000/v2/_catalog
+  208  clear
+  209  docker images
+  210  docker rmi 122c  25e2c  d6e46 2ae34  d435e
+  211  docker images
+  212  docker rmi 122c --force
+  213  docker images
+  214  docker rmi 25e
+  215  docker rmi 25e --force
+  216  docker rmi d23b --force
+  217  docker images
+  218  clear
+  219  docker pull mysql
+  220  docker image inspect mysql
+  221  clear
+  222  docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
+  223  docker container run -d --name mysql2 -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
+  224  docker container inspect mysql2
+  225  docker container inspect mysql2 | more
+  226  clear
+  227  docker container inspect mysql2
+  228  clear
+  229  docker container volume
+  230  clear
+  231  docker volume ls
+  232  docker container run -d --name mysql2 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+  233  docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+  234  docker volume ls
+  235  docker container run -d --name mysql4 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+  236  docker container ls
+  237  docker rm 0e744 71a4 dd62
+  238  docker rm 0e744 71a4 dd62 --force
+  239  docker container ls -a
+  240  docker rm e200c 6bc83 e4cc 633e 5d7a4
+  241  clear
+  242  docker container ls
+  243  docker container ls -a
+  244  docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql:8.0
+  245  docker volume ls
+  246  docker container ls
+  247  docker container inspect mysql
+  248  clear
+  249  docker image ls
+  250  docker container ls
+  251  docker container stop 8e79
+  252  docker container rm 8379
+  253  docker container rm 8e79
+  254  docker container ls
+  255  docker volume ls
+  256  docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+  257  docker container ls
+  258  docker volume ls
+  259  docker container inspect mysql
+  260  history
