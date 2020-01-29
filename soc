@@ -1,0 +1,139 @@
+           system:bootstrappers:kubeadm:default-node-token
+[root@k8smaster ~]# history
+    1  yum install -y yum-utils   device-mapper-persistent-data   lvm2
+    2  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    3  systectl start docker
+    4  clear
+    5  systemctl start docker
+    6  service docekr start
+    7  service docker start
+    8  yum install docker-ce docker-ce-cli containerd.io
+    9  clear
+   10  service docker start
+   11  chkconfig docker on
+   12  history
+   13  cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+   14  [kubernetes]
+   15  name=Kubernetes
+   16  baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+   17  enabled=1
+   18  gpgcheck=1
+   19  repo_gpgcheck=1
+   20  gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+   21  EOF
+   22  setenforce 0
+   23  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+   24  yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+   25  systemctl enable --now kubelet
+   26  cat <<EOF > /etc/sysctl.d/k8s.conf
+   27  net.bridge.bridge-nf-call-ip6tables = 1
+   28  net.bridge.bridge-nf-call-iptables = 1
+   29  EOF
+   30  sysctl --system
+   31  systemctl daemon-reload
+   32  systemctl restart kubelet
+   33  clear
+   34  history
+   35  clear
+   36  hostnamectl set-hostname --static k8smaster
+   37  vi /etc/cloud/cloud.cfg
+   38  vi /etc/hosts
+   39  cat /etc/hosts
+   40  hostname
+   41  reboot
+   42  clear
+   43  kubeadm init
+   44  clear
+   45  kubectl get nodes
+   46  mkdir -p $HOME/.kube
+   47    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   48  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   49  kubectl get nodes
+   50   kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   51  kubectl get nodes
+   52  kubectl get pods --all-namespaces
+   53  clear
+   54  kubectl get namespaces
+   55  kubectl get pods --all-namespaces
+   56  clear
+   57  vi dev.yaml
+   58  kubectl create -f dev.yaml
+   59  vi dev.yaml
+   60  kubectl create -f dev.yaml
+   61  cat dev.yaml
+   62  kubectl get ns
+   63  vi pod.yaml
+   64  kubectl apply -f pod.yaml
+   65  vi pod.yaml
+   66  ls
+   67  kubectl apply -f pod.yaml
+   68  vi pod.yaml
+   69  kubectl apply -f pod.yaml
+   70  vi pod.yaml
+   71  kubectl apply -f pod.yaml
+   72  vi pod.yaml
+   73  kubectl apply -f pod.yaml
+   74  kubectl get pods
+   75  kubectl describe pod nginx-deployment
+   76  clear
+   77  ls
+   78  kubectl create namesapce quota-mem-cpu-example
+   79  kubectl create ns quota-mem-cpu-example
+   80  vi limits.yaml
+   81  kubectl apply -f limits.yaml --namespace=quota-mem-cpu-example
+   82  kubectl get resourcequota mem-cpu-demo --namespace=quota-mem-cpu-example --output=yaml
+   83  clear
+   84  history
+   85  kubectl get resourcequota mem-cpu-demo --namespace=quota-mem-cpu-example --output=yaml
+   86  vi deploy.yaml
+   87  clear
+   88  kubectl apply -f --namespace=quota-mem-cpu-example
+   89*
+   90  kubectl get resourcequota mem-cpu-demo --namespace=quota-mem-cpu-example --output=yaml
+   91  ls
+   92  cat limits.yaml
+   93  cat deploy.yaml
+   94  clear
+   95  vi deploy.yaml
+   96  vi deployment.yaml
+   97  kubectl apply -f deployment.yaml
+   98  kubectl get deployment
+   99  kubectl rollout status deployment.v1.apps/nginx-deployment
+  100  kubectl get rs
+  101  kubectl describe deployments
+  102  kubectl get rs
+  103  kubectl describe deployments
+  104  clear
+  105  kubectl set imsta deployment deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 --record=true
+  106  kubectl set image deployment deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 --record=true
+  107  kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 --record=true
+  108  kubectl rollout status deployment.v1.apps/nginx-deployment
+  109  kubectl get rs
+  110  kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.91 --record=true
+  111  kubectl get rs
+  112  kubectl rollout status deployment.v1.apps/nginx-deployment
+  113  ubectl get pod
+  114  kubectl get pod
+  115  clear
+  116  kubectl rollout history deployment.v1.apps/nginx-deployment
+  117  kubectl rollout history deployment.v1.apps/nginx-deployment --revision=2
+  118  kubectl get pods
+  119  kubectl describe nginx-deployment-56f8998dbc-4nmxq
+  120  kubectl describe nginx-deployment
+  121  kubectl get rs
+  122  kubectl get deployment
+  123  clear
+  124  kubectl scale deployment.v1.apps/nginx-deplyoment --replicas=10
+  125  kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
+  126  kubectl get rs
+  127  kubectl autoscale deployment.v1.apps/nginx-deployment --min=10 --max=15 --cpu-percent=80
+  128  kubectl autoscale deployment.v1.apps/nginx-deployment --min=10 --cpu-percent=80
+  129  kubectl rollout pause deployment.v1.apps/nginx-deployment
+  130  clear
+  131  kubectl rollout pause deployment.v1.apps/nginx-deployment
+  132  kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:latest
+  133  kubectl rollout resume deployment.v1.apps/nginx-deployment
+  134  kubectl get rs -w
+  135  kubeadm token create --print-join-command
+  136  kubeadm token list
+  137  history
